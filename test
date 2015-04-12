@@ -1,0 +1,19 @@
+#!venv/bin/python
+import click
+from docker.manager import Docker
+
+
+@click.command()
+@click.argument('repo')
+def main(repo):
+    """
+    This test will clone a given repo on the latest docker image
+    in the registery.
+    """
+    with Docker('frigg/frigg-test-base:latest') as docker:
+        print(docker.run('git clone {repo} cloned'.format(repo=repo)).out)
+        print(docker.run('pip install frigg-runner').out)
+        print(docker.run('frigg', working_directory='cloned').out)
+
+if __name__ == '__main__':
+    main()
