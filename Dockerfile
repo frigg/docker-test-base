@@ -12,9 +12,11 @@ RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; r
 COPY files/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
 
 RUN apt-get update && apt-get install -y redis-server mysql-server mongodb memcached
-RUN apt-get update && apt-get install -y python python-dev python-virtualenv python3 python3-dev supervisor libboost-python-dev
+RUN apt-get update && apt-get install -y python python-dev python-pip python3 python3-dev python3-pip supervisor libboost-python-dev 
 RUN pip install -U pip
-RUN pip install -U tox flake8 isort coverage
+RUN pip3 install -U pip
+RUN pip install -U flake8
+RUN pip3 install -U tox virtualenv isort coverage
 
 # Install Java.
 RUN \
