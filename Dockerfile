@@ -9,6 +9,7 @@ RUN apt-get update && \
 
 RUN apt-get update && apt-get install -y postgresql postgresql-server-dev-9.3
 RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
+COPY files/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
 
 RUN apt-get update && apt-get install -y redis-server
 RUN apt-get update && apt-get install -y python python-dev python-virtualenv python3 python3-dev supervisor libboost-python-dev 
