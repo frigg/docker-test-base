@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM phusion/baseimage:0.9.16
 
 RUN apt-get update && \
   apt-get install -y build-essential software-properties-common libssl-dev && \
