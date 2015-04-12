@@ -1,4 +1,6 @@
 #!venv/bin/python
+import subprocess
+
 import click
 from docker.manager import Docker
 
@@ -7,10 +9,12 @@ from docker.manager import Docker
 @click.argument('repo')
 def main(repo):
     """
-    This test will clone a given repo on the latest docker image
-    in the registery.
+    Tests the Dockerfile. Builds it and clones the repository passed
+    to the repo arguments and runs frigg-runner inside the cloned
+    folder.
     """
-    with Docker('frigg/frigg-test-base:latest') as docker:
+    print(subprocess.call(['docker', 'build', '-t', 'test-base', '.']))
+    with Docker('test-base') as docker:
         print(docker.run('git clone {repo} cloned'.format(repo=repo)).out)
         print(docker.run('pip install frigg-runner').out)
         print(docker.run('frigg', working_directory='cloned').out)
