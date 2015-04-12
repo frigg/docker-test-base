@@ -1,0 +1,3 @@
+tasks:
+ - npm install dockerlint
+ - node_modules/.bin/dockerlint -f Dockerfile
