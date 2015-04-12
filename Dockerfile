@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 RUN apt-get update && \
   apt-get install -y build-essential software-properties-common libssl-dev && \
-  apt-get install -y byobu curl git unzip vim wget
+  apt-get install -y byobu curl git unzip vim wget libxml2-dev libxslt-dev
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get update && \
   apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev
@@ -12,7 +12,7 @@ RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; r
 COPY files/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
 
 RUN apt-get update && apt-get install -y redis-server mysql-server mongodb memcached
-RUN apt-get update && apt-get install -y python python-dev python-virtualenv python3 python3-dev supervisor libboost-python-dev 
+RUN apt-get update && apt-get install -y python python-dev python-virtualenv python3 python3-dev supervisor libboost-python-dev
 RUN pip install -U pip
 RUN pip install -U tox flake8 isort coverage
 
