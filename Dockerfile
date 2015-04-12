@@ -13,7 +13,6 @@ RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; r
 RUN apt-get update && apt-get install -y redis-server
 RUN apt-get update && apt-get install -y python python-dev python-virtualenv python3 python3-dev supervisor libboost-python-dev 
 RUN pip install -U pip
-RUN pip3 install -U pip
 RUN pip install -U tox flake8 isort coverage
 
 # Install Java.
