@@ -36,7 +36,8 @@ RUN apt-get update && apt-get install -y maven
 
 RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler
 
-RUN wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
+RUN apt-get update && apt-get install nodejs -y
 
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
 
