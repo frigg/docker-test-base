@@ -1,5 +1,7 @@
 FROM phusion/baseimage:0.9.16
 
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 RUN apt-get update && \
   apt-get install -y build-essential software-properties-common libssl-dev && \
   apt-get install -y byobu curl git unzip vim wget libxml2-dev libxslt-dev
