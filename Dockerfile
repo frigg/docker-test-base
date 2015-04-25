@@ -12,7 +12,7 @@ RUN apt-get update && \
   apt-get install -y byobu curl git unzip vim wget libxml2-dev libxslt-dev
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get update && \
-  apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev
+  apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev graphicsmagick
 
 RUN curl -sSL https://get.docker.com/ubuntu/ | sh
 RUN curl https://raw.githubusercontent.com/jpetazzo/dind/master/wrapdocker > /usr/local/bin/wrapdocker
