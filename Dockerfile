@@ -38,7 +38,6 @@ RUN \
   add-apt-repository -y ppa:webupd8team/java && \
   apt-get update && \
   apt-get install -y oracle-java8-installer && \
-  rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
 
 # Define commonly used JAVA_HOME variable
@@ -54,3 +53,6 @@ RUN apt-get update && apt-get install nodejs -y
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
 
 RUN gem install jekyll
+
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
