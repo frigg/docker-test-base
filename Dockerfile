@@ -25,6 +25,11 @@ RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; r
 RUN service postgresql start && su - postgres -c "createuser -s root" && service postgresql stop
 COPY files/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
 
+RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list && \
+  curl https://www.rabbitmq.com/rabbitmq-signing-key-public.asc | \
+  sudo apt-key add - && \
+  apt-get update && apt-get install -y rabbitmq-server
+
 RUN apt-get update && apt-get install -y redis-server mysql-server mongodb memcached
 RUN apt-get update && apt-get install -y python python-dev python-pip python3 python3-dev python3-pip supervisor libboost-python-dev 
 RUN pip install -U pip
