@@ -27,7 +27,7 @@ COPY files/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
 
 RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list && \
   curl https://www.rabbitmq.com/rabbitmq-signing-key-public.asc | \
-  sudo apt-key add - && \
+  apt-key add - && \
   apt-get update && apt-get install -y rabbitmq-server
 
 RUN apt-get update && apt-get install -y redis-server mysql-server mongodb memcached
