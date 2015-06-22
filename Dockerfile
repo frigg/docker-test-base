@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y python python-dev python-pip python3 py
 RUN pip install -U pip
 RUN pip3 install -U pip
 RUN pip install -U flake8
-RUN pip3 install -U tox virtualenv isort coverage
+RUN pip3 install -U tox virtualenv coverage
 
 # Install Java.
 RUN \
