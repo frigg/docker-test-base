@@ -34,7 +34,6 @@ RUN apt-get update && apt-get install -y redis-server mysql-server mongodb memca
 RUN apt-get update && apt-get install -y python python-dev python-pip python3 python3-dev python3-pip supervisor libboost-python-dev 
 RUN pip install -U pip
 RUN pip3 install -U pip
-RUN pip install -U flake8
 RUN pip3 install -U tox virtualenv coverage
 
 # Install Java.
