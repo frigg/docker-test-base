@@ -56,7 +56,7 @@ RUN apt-get update && apt-get install nodejs -y
 
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
 
-RUN gem install jekyll
+RUN gem install jekyll rake html-proofer
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
