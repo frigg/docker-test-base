@@ -25,6 +25,9 @@ RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; r
 RUN service postgresql start && su - postgres -c "createuser -s root" && service postgresql stop
 COPY files/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
 
+# Apache
+RUN apt-get update && apt-get install -y apache2 libapache2-mod-wsgi libapache2-mod-xsendfile ssl-cert poppler-utils
+
 RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list && \
   curl https://www.rabbitmq.com/rabbitmq-signing-key-public.asc | \
   apt-key add - && \
