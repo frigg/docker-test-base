@@ -1,4 +1,3 @@
-#!venv/bin/python
 import subprocess
 
 import click
