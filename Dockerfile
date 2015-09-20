@@ -14,6 +14,7 @@ RUN apt-get update && apt-get -y upgrade
 RUN apt-get update && \
   apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev graphicsmagick
 
+RUN apt-get install -y ca-certificates wget
 RUN curl -sSL https://get.docker.com/ubuntu/ | sh
 RUN curl https://raw.githubusercontent.com/jpetazzo/dind/master/wrapdocker > /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
