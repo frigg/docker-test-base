@@ -71,5 +71,3 @@ RUN gem install jekyll rake html-proofer
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-ENTRYPOINT ["/bin/bash", "--login", "-i", "-c"]
