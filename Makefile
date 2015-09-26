@@ -6,7 +6,7 @@ setup:
 	docker build -t $(TAG) .
 
 run:
-	docker run -i $(TAG)
+	docker run -t -i $(TAG)
 
 killall:
 	docker kill $(docker ps | grep worker | awk '{print $1}')
