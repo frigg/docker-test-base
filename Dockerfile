@@ -63,8 +63,7 @@ RUN apt-get update && apt-get install -y maven
 
 RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler
 
-RUN curl -sL https://deb.nodesource.com/setup | bash -
-RUN apt-get update && apt-get install nodejs -y
+RUN git clone https://github.com/creationix/nvm.git $HOME/.nvm && echo '. ~/.nvm/nvm.sh' >> $HOME/.profile && source $HOME/.profile && nvm install 4 && echo 'nvm use 4' >> $HOME/.profile && source $HOME/.profile
 
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
 
@@ -72,3 +71,5 @@ RUN gem install jekyll rake html-proofer
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENTRYPOINT ["/bin/bash", "--login", "-i", "-c"]
