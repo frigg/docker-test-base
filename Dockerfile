@@ -71,3 +71,4 @@ RUN gem install jekyll rake html-proofer
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+ENV PATH=$HOME/.nvm/versions/node/v4.0.0/bin:$PATH
