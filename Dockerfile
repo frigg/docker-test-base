@@ -63,7 +63,7 @@ RUN apt-get update && apt-get install -y maven
 
 RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler
 
-RUN git clone https://github.com/creationix/nvm.git $HOME/.nvm && echo '. ~/.nvm/nvm.sh' >> $HOME/.profile && source $HOME/.profile && nvm install 4 && echo 'nvm use 4' >> $HOME/.profile && source $HOME/.profile
+RUN git clone https://github.com/creationix/nvm.git $HOME/.nvm && echo '. ~/.nvm/nvm.sh' >> $HOME/.profile && source $HOME/.profile && nvm install 4 && echo 'nvm use 4 > /dev/null' >> $HOME/.profile && source $HOME/.profile
 
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
 
