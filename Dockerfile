@@ -46,7 +46,6 @@ RUN wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz && tar -xvf Py
 
 RUN pip install -U pip
 RUN pip3 install -U pip
-RUN pip3 install -U tox virtualenv coverage
 
 # Install Java.
 RUN \
