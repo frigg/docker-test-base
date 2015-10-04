@@ -58,7 +58,7 @@ RUN apt-get update && apt-get install -y maven
 
 RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler
 
-RUN curl --silent --location https://deb.nodesource.com/setup_4.x | sudo bash -
+RUN curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update && apt-get install nodejs -y
 
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
