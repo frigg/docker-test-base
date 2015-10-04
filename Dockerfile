@@ -19,11 +19,6 @@ RUN apt-get update && \
   apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev graphicsmagick
 
 RUN apt-get install -y ca-certificates wget
-RUN curl -sSL https://get.docker.com/ubuntu/ | sh
-RUN curl https://raw.githubusercontent.com/jpetazzo/dind/master/wrapdocker > /usr/local/bin/wrapdocker
-RUN chmod +x /usr/local/bin/wrapdocker
-VOLUME /var/lib/docker
-CMD ["wrapdocker"]
 
 RUN apt-get update && apt-get install -y postgresql postgresql-server-dev-9.3
 RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
@@ -63,7 +58,7 @@ RUN apt-get update && apt-get install -y maven
 
 RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler
 
-RUN curl --silent --location https://deb.nodesource.com/setup_4.x | sudo bash -
+RUN curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update && apt-get install nodejs -y
 
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
