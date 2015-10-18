@@ -37,7 +37,7 @@ RUN apt-get update && apt-get install -y redis-server mysql-server mongodb memca
 RUN apt-get update && apt-get install -y libffi6 libffi-dev
 RUN apt-get update && apt-get install -y python python-dev python-pip python3 python3-dev python3-pip supervisor libboost-python-dev 
 
-RUN wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz && tar -xvf Python-3.5.0.tgz && cd Python-3.5.0 && ./configure && make && make install
+RUN apt-get update && apt-get install libsqlite3-dev && wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz && tar -xvf Python-3.5.0.tgz && cd Python-3.5.0 && ./configure && make && make install
 
 RUN pip install -U pip
 RUN pip3 install -U pip
