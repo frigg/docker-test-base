@@ -18,7 +18,7 @@ RUN apt-get update && apt-get -y upgrade
 RUN apt-get update && \
   apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev graphicsmagick imagemagick
 
-RUN apt-get install -y ca-certificates wget
+RUN apt-get update && apt-get install -y ca-certificates wget
 
 RUN apt-get update && apt-get install -y postgresql postgresql-server-dev-9.3
 RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
