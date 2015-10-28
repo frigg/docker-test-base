@@ -16,7 +16,7 @@ RUN apt-get update && \
   apt-get install -y byobu curl git unzip vim wget libxml2-dev libxslt-dev
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get update && \
-  apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev graphicsmagick
+  apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev graphicsmagick imagemagick
 
 RUN apt-get install -y ca-certificates wget
 
