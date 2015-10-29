@@ -56,16 +56,15 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN apt-get update && apt-get install -y maven
 
-RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler
+# Ruby and jekyll
+RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler python-software-properties && apt-add-repository ppa:brightbox/ruby-ng && apt-get update && apt-get install -y ruby2.2 ruby2.2-dev ruby-switch && ruby-switch --set ruby2.2 && gem install jekyll rake html-proofer
 
-RUN apt-get install -y python-software-properties && apt-add-repository ppa:brightbox/ruby-ng && apt-get update && apt-get install -y ruby2.1 ruby-switch && ruby-switch --set ruby2.1
-
+# Nodejs
 RUN curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update && apt-get install nodejs -y
 
+# Sbt
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
-
-RUN gem install jekyll rake html-proofer
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
