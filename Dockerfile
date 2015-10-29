@@ -58,7 +58,7 @@ RUN apt-get update && apt-get install -y maven
 
 RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler
 
-RUN apt-get install python-software-properties && apt-add-repository ppa:brightbox/ruby-ng && apt-get update && apt-get install ruby2.1 ruby-switch && ruby-switch --set ruby2.1
+RUN apt-get install -y python-software-properties && apt-add-repository ppa:brightbox/ruby-ng && apt-get update && apt-get install -y ruby2.1 ruby-switch && ruby-switch --set ruby2.1
 
 RUN curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update && apt-get install nodejs -y
