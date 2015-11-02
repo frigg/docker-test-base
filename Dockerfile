@@ -13,7 +13,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN apt-get update && \
   apt-get install -y build-essential software-properties-common libssl-dev && \
-  apt-get install -y byobu curl git unzip vim wget libxml2-dev libxslt-dev
+  apt-get install -y byobu curl libcurl4-gnutls-dev git unzip vim wget libxml2-dev libxslt-dev
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get update && \
   apt-get install -y libjpeg62 libjpeg62-dev zlib1g-dev graphicsmagick imagemagick
