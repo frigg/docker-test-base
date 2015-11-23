@@ -65,8 +65,8 @@ RUN apt-get update && apt-get install nodejs -y
 
 wget https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
-ENV GOROOT=/usr/local/go
-ENV PATH=$PATH:$GOROOT/bin
+ENV GOROOT /usr/local/go
+ENV PATH $PATH:$GOROOT/bin
 
 # Sbt
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
