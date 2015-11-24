@@ -63,8 +63,8 @@ RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler python-softw
 RUN curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update && apt-get install nodejs -y
 
-wget https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
+RUN wget https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
 ENV GOROOT /usr/local/go
 ENV GOPATH /usr/local/gopath
 ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
