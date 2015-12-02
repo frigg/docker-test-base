@@ -20,7 +20,9 @@ RUN apt-get update && \
 
 RUN apt-get update && apt-get install -y ca-certificates wget
 
-RUN apt-get update && apt-get install -y postgresql postgresql-server-dev-9.3
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - 
+RUN apt-get update && apt-get install -y postgresql-9.4 postgresql-server-dev-9.4
 RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
 RUN service postgresql start && su - postgres -c "createuser -s root" && service postgresql stop
 COPY files/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
