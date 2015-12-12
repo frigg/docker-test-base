@@ -25,7 +25,7 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo 
 RUN apt-get update && apt-get install -y postgresql-9.4 postgresql-server-dev-9.4
 RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
 RUN service postgresql start && su - postgres -c "createuser -s root" && service postgresql stop
-COPY files/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
+COPY files/pg_hba.conf /etc/postgresql/9.4/main/pg_hba.conf
 
 # Apache
 RUN apt-get update && apt-get install -y apache2 libapache2-mod-wsgi libapache2-mod-xsendfile ssl-cert poppler-utils
