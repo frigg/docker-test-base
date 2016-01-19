@@ -62,6 +62,7 @@ RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler python-softw
 # Nodejs
 RUN curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update && apt-get install nodejs -y
+RUN npm install -g npm@3
 
 # Sbt
 RUN wget https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && dpkg -i sbt-0.13.6.deb
