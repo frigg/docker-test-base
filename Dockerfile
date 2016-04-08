@@ -21,7 +21,7 @@ RUN apt-get update && \
 RUN apt-get update && apt-get install -y ca-certificates wget
 
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - 
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 RUN apt-get update && apt-get install -y postgresql-9.4 postgresql-server-dev-9.4
 RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
 RUN service postgresql start && su - postgres -c "createuser -s root" && service postgresql stop
@@ -37,9 +37,9 @@ RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.
 
 RUN apt-get update && apt-get install -y redis-server mysql-server mongodb memcached libmysqlclient-dev
 RUN apt-get update && apt-get install -y libffi6 libffi-dev
-RUN apt-get update && apt-get install -y python python-dev python-pip python3 python3-dev python3-pip supervisor libboost-python-dev 
+RUN apt-get update && apt-get install -y python python-dev python-pip python3 python3-dev python3-pip supervisor libboost-python-dev
 
-RUN apt-get update && apt-get install libsqlite3-dev && wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz && tar -xvf Python-3.5.0.tgz && cd Python-3.5.0 && ./configure && make && make install
+RUN apt-get update && apt-get install libbz2-dev libsqlite3-dev && wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz && tar -xvf Python-3.5.0.tgz && cd Python-3.5.0 && ./configure && make && make install
 
 RUN pip install -U pip
 RUN pip3 install -U pip
