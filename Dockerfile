@@ -64,7 +64,6 @@ RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler python-softw
 # Nodejs
 RUN curl --silent --location https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get update && apt-get install nodejs -y
-RUN npm install -g npm@3
 
 RUN wget https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
