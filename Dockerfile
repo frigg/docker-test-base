@@ -31,7 +31,7 @@ COPY files/pg_hba.conf /etc/postgresql/9.4/main/pg_hba.conf
 RUN apt-get update && apt-get install -y apache2 libapache2-mod-wsgi libapache2-mod-xsendfile ssl-cert poppler-utils
 
 RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list && \
-  curl https://www.rabbitmq.com/rabbitmq-signing-key-public.asc | \
+  curl https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | \
   apt-key add - && \
   apt-get update && apt-get install -y rabbitmq-server
 
