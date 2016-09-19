@@ -62,7 +62,7 @@ RUN apt-get update && apt-get install -y maven
 RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler python-software-properties && apt-add-repository ppa:brightbox/ruby-ng && apt-get update && apt-get install -y ruby2.2 ruby2.2-dev ruby-switch && ruby-switch --set ruby2.2 && gem install jekyll rake html-proofer
 
 # Nodejs
-RUN curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
+RUN curl --silent --location https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get update && apt-get install nodejs -y
 RUN npm install -g npm@3
 
